@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="D:\android_projects\SpiderTask1\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        revision="24.0.0 rc3"
+        sha1="9995df6a999e96c61f1fb72798fd8894acb5ad77">
+        <dex dex="D:\android_projects\SpiderTask1\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_18459b07d7c66a5ae1afb7f282c382f2a22d2fae\classes.dex" />
+    </item>
+    <item
+        jar="D:\android_projects\SpiderTask1\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0 rc3"
+        sha1="de4db3785756bfb0915a9f59a9b3f2fea7407be4">
+        <dex dex="D:\android_projects\SpiderTask1\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-animated-vector-drawable-23.4.0_5124031bb15c33cd6fbd817ef7bad55bdfc542af\classes.dex" />
+    </item>
+    <item
+        jar="D:\android_projects\SpiderTask1\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0 rc3"
+        sha1="67bd36ee9340ec7c254108936ad16b24bed160cc">
+        <dex dex="D:\android_projects\SpiderTask1\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-v4-23.4.0_8d8381780f592e9cd0830a73eb1afaa94dd8df0c\classes.dex" />
+    </item>
+    <item
+        jar="D:\android_projects\SpiderTask1\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0 rc3"
+        sha1="548f06de403a9409f00554b3ee12a9fdea0e236c">
+        <dex dex="D:\android_projects\SpiderTask1\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-appcompat-v7-23.4.0_144588258465998eaf2dfa9a36f7559aa40f5bd0\classes.dex" />
+    </item>
+    <item
+        jar="D:\android_projects\SpiderTask1\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.4.0\jars\libs\internal_impl-23.4.0.jar"
+        jumboMode="true"
+        revision="24.0.0 rc3"
+        sha1="ea3c07504d2c8f4b13aa17c45c1b68ed9c1c3674">
+        <dex dex="D:\android_projects\SpiderTask1\app\build\intermediates\transforms\dex\debug\folders\1000\10\internal_impl-23.4.0_5712661511c9e34834e14d7cc4497dacb9214f2b\classes.dex" />
+    </item>
+    <item
+        jar="D:\android_projects\SpiderTask1\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.4.0\jars\classes.jar"
+        jumboMode="true"
+        revision="24.0.0 rc3"
+        sha1="c2c594cace5d83a3227b2b6e658ecbfd586d3ed9">
+        <dex dex="D:\android_projects\SpiderTask1\app\build\intermediates\transforms\dex\debug\folders\1000\10\com.android.support-support-vector-drawable-23.4.0_251b225d8396b94c8730c7ed044cf21bd87283da\classes.dex" />
+    </item>
+    <item
+        jar="C:\Users\Srikanth\Android_sdk\extras\android\m2repository\com\android\support\support-annotations\23.4.0\support-annotations-23.4.0.jar"
+        jumboMode="true"
+        revision="24.0.0 rc3"
+        sha1="ffbe55fdb2bb456b1485831706a9eac3300bb6b8">
+        <dex dex="D:\android_projects\SpiderTask1\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-23.4.0_4fdb695ba4927855a0e0238a86f1c714a3d3fbe5\classes.dex" />
+    </item>
+    <item
+        jar="D:\android_projects\SpiderTask1\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
+        revision="24.0.0 rc3"
+        sha1="0f70247c15555ff852b5a9d67e53a51f55243bb2">
+        <dex dex="D:\android_projects\SpiderTask1\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_27d6510be43c1fbc3c4c807b1e044a7dc01f69c3\classes.dex" />
+    </item>
+
+</items>
