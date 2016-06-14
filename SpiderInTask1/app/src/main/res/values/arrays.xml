@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="departments">
+        <item>Civil</item>
+        <item>Computer Science</item>
+        <item>Chemical</item>
+        <item>Electronics and Comm.</item>
+        <item>Electrical and Electronics</item>
+        <item>Instrumentation and Control</item>
+        <item>Mechanical</item>
+        <item>Metallurgy</item>
+        <item>Production</item>
+        <item>Architecture</item>
+    </string-array>
+</resources>
