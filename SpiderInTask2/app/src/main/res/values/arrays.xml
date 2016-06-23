@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="tracks">
+        <item>Cake Face</item>
+        <item>Land On Mars</item>
+        <item>Popcorn</item>
+        <item>Short Man</item>
+    </string-array>
+</resources>
