@@ -1,8 +1,14 @@
 package com.example.android.spiderintask2;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,6 +22,8 @@ public class ChangePictureTask extends AsyncTask<String, Integer, String[]> {
 
     private Activity mActivity;
     ArrayList<Integer> imageIds = new ArrayList<Integer>();
+   // SharedPreferences myPref = PreferenceManager.getDefaultSharedPreferences(mActivity);
+    //Boolean use_animation = myPref.getBoolean("animation",true);
 
     public void setActivity(Activity activity){
         mActivity = activity;
@@ -37,7 +45,7 @@ public class ChangePictureTask extends AsyncTask<String, Integer, String[]> {
     protected String[] doInBackground(String... params) {
 
         for(int i=0 ; i<imageIds.size() ; i++) {
-            publishProgress(i,3);
+            publishProgress(i,3,1);
             for(int j=2 ; j>=0 ; j--) {
                 long millis = 1000;
                 try {
@@ -45,17 +53,21 @@ public class ChangePictureTask extends AsyncTask<String, Integer, String[]> {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                publishProgress(i,j);
+                publishProgress(i,j,0);
             }
         }
         return params;
     }
 
     @Override
-    protected void onProgressUpdate(Integer... values) {
-        ImageView current_image = (ImageView)mActivity.findViewById(R.id.slideshow_imageview);
-        current_image.setImageResource(imageIds.get(values[0]));
-
+    protected void onProgressUpdate(final Integer... values) {
+        if(values[2]==1) {
+            final ImageView current_image = (ImageView) mActivity.findViewById(R.id.slideshow_imageview);
+            if(getAnimationPreference(mActivity))
+                useAnimation(mActivity,current_image,values[0]);
+            else
+                current_image.setImageResource(imageIds.get(values[0]));
+        }
         TextView timer_textview = (TextView)mActivity.findViewById(R.id.timer_textview);
         timer_textview.setText(Integer.toString(values[1]));
         super.onProgressUpdate(values);
@@ -71,4 +83,62 @@ public class ChangePictureTask extends AsyncTask<String, Integer, String[]> {
         super.onPostExecute(strings);
     }
 
+    public void useAnimation(Context context, final ImageView imageView, final int imageID){
+
+        final Animation anim_out = AnimationUtils.loadAnimation(context, android.R.anim.fade_out);
+        final Animation anim_in = AnimationUtils.loadAnimation(context, android.R.anim.fade_in);
+        anim_out.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                imageView.setImageResource(imageIds.get(imageID));
+                anim_in.setAnimationListener(new Animation.AnimationListener() {
+                    @Override
+                    public void onAnimationStart(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationRepeat(Animation animation) {
+                    }
+
+                    @Override
+                    public void onAnimationEnd(Animation animation) {
+                    }
+                });
+                imageView.startAnimation(anim_in);
+            }
+        });
+        imageView.startAnimation(anim_out);
+
+    }
+
+    int counter = 0;
+    public void goToNextPicture(){
+        if(counter <imageIds.size()){
+            counter++;
+            if(counter ==imageIds.size()) counter =0;
+            try {
+                ImageView imageView = (ImageView) mActivity.findViewById(R.id.slideshow_imageview);
+                if (getAnimationPreference(mActivity))
+                    useAnimation(mActivity, imageView, counter);
+                else
+                    imageView.setImageResource(imageIds.get(counter));
+            }catch (NullPointerException e){
+                Log.e("goToNextPicture:",e.toString());
+            }
+        }
+    }
+
+
+    public static Boolean getAnimationPreference(Context context){
+        SharedPreferences myPref = PreferenceManager.getDefaultSharedPreferences(context);
+        return myPref.getBoolean("animate",true);
+    }
 }

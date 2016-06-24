@@ -1,0 +1,15 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <SwitchPreference
+        android:key="animate"
+        android:title="Use Animation"
+        android:summary="Enable animation effect during image transition"
+        android:defaultValue="true"/>
+
+    <SwitchPreference
+        android:key="gesture"
+        android:title="Enable Gesture Control"
+        android:summary="Use gestures to control image transition"
+        android:defaultValue="false"/>
+
+</PreferenceScreen>
