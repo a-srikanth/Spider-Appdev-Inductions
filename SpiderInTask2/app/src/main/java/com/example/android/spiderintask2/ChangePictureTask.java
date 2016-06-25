@@ -22,8 +22,6 @@ public class ChangePictureTask extends AsyncTask<String, Integer, String[]> {
 
     private Activity mActivity;
     ArrayList<Integer> imageIds = new ArrayList<Integer>();
-   // SharedPreferences myPref = PreferenceManager.getDefaultSharedPreferences(mActivity);
-    //Boolean use_animation = myPref.getBoolean("animation",true);
 
     public void setActivity(Activity activity){
         mActivity = activity;

@@ -1,64 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:layout_height="wrap_content"
+    android:background="#FFFFFF"
     tools:context="com.example.android.spiderintask2.MainActivity">
     <FrameLayout
+        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-        <ImageView
-            android:id="@+id/slideshow_imageview"
+        android:background="#FFFFFF">
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:src="@drawable/concept_car_zero"
-            android:scaleType="fitCenter"
-            android:layout_gravity="center"/>
-        <ImageButton
-            android:id="@+id/slideshow_play_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:src="@drawable/ic_action_slideshow"
-            android:background="#66FFFFFF"
-            android:onClick="startSlideshow"/>
-        <TextView
-            android:id="@+id/timer_textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:text="3"
-            android:textSize="124sp"
-            android:textColor="#66FFFFFF"
-            android:visibility="gone"
-            android:layout_marginBottom="8dp"/>
-    </FrameLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp">
-        <ImageButton
-            android:id="@+id/play_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_play"
-            android:background="#00FFFFFF"
-            android:contentDescription="Play Button"
-            android:onClick="startTrack"/>
-        <ImageButton
-            android:id="@+id/pause_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_action_stop"
-            android:background="#00FFFFFF"
-            android:contentDescription="Stop Button"
-            android:onClick="stopTrack"
-            android:visibility="gone"/>
-        <Spinner
-            android:id="@+id/track_selection_spinner"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#607D8B">
+                <ImageView
+                    android:id="@+id/slideshow_imageview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/concept_car_zero"
+                    android:scaleType="fitCenter"
+                    android:layout_gravity="center"/>
+                <ImageButton
+                    android:id="@+id/slideshow_play_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_action_slideshow"
+                    android:background="#66FFFFFF"
+                    android:onClick="startSlideshow"/>
+                <TextView
+                    android:id="@+id/timer_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|right"
+                    android:text="3"
+                    android:textSize="124sp"
+                    android:textColor="#66FFFFFF"
+                    android:visibility="gone"
+                    android:layout_marginBottom="8dp"/>
+            </FrameLayout>
 
-</LinearLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Select Track"
+                android:textAllCaps="true"
+                android:textSize="16sp"
+                android:textStyle="bold"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_marginTop="2dp"
+                android:background="#607D8B"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:padding="4dp">
+                <ImageButton
+                    android:id="@+id/play_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_play"
+                    android:background="#FFFFFF"
+                    android:contentDescription="Play Button"
+                    android:onClick="startTrack"/>
+                <ImageButton
+                    android:id="@+id/stop_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_action_stop"
+                    android:background="#FFFFFF"
+                    android:contentDescription="Stop Button"
+                    android:onClick="stopTrack"
+                    android:visibility="gone"/>
+                <Spinner
+                    android:id="@+id/track_selection_spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </FrameLayout>
+</ScrollView>

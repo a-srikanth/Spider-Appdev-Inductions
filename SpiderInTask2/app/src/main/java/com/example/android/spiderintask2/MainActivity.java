@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
 
                 final Spinner spinner = (Spinner)findViewById(R.id.track_selection_spinner);
                         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                                R.array.tracks, android.R.layout.simple_spinner_item);
+                                R.array.tracks, R.layout.spinner_item);
 
-                        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+                        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
                         spinner.setAdapter(adapter);
                         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
                             public void onItemSelected(AdapterView<?> arg0, View arg1,
                                                        int arg2, long arg3) {
                                 track_number = spinner.getSelectedItemPosition();
+                                stopTrack();
                             }
 
                             @Override
@@ -70,6 +71,13 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     @Override
+    protected void onStop() {
+        super.onStop();
+        if(mSensorManager!=null)
+            mSensorManager.unregisterListener((SensorEventListener)this);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
         getMenuInflater().inflate(R.menu.menu_main,menu);
@@ -88,22 +96,23 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     }
 
     public void startTrack(View view){
-        startTrack();
-    }
-    public void startTrack(){
         ImageButton play_button = (ImageButton)findViewById(R.id.play_button);
         play_button.setVisibility(View.GONE);
-        ImageButton pause_button = (ImageButton) findViewById(R.id.pause_button);
+        ImageButton pause_button = (ImageButton) findViewById(R.id.stop_button);
         pause_button.setVisibility(View.VISIBLE);
 
         musicPlayer.setContext(getApplicationContext());
         musicPlayer.beginPlayer(track_number);
-}
+    }
 
     public void stopTrack(View view){
+        stopTrack();
+    }
+
+    public void stopTrack(){
         ImageButton play_button = (ImageButton)findViewById(R.id.play_button);
         play_button.setVisibility(View.VISIBLE);
-        ImageButton pause_button = (ImageButton) findViewById(R.id.pause_button);
+        ImageButton pause_button = (ImageButton) findViewById(R.id.stop_button);
         pause_button.setVisibility(View.GONE);
 
         musicPlayer.stopPlayer();
@@ -119,18 +128,6 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         slideshow.setActivity(this);
         slideshow.addImages();
         slideshow.execute();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        if(mSensorManager!=null)
-            mSensorManager.unregisterListener((SensorEventListener)this);
     }
 
     @Override

@@ -17,6 +17,9 @@ public class MusicPlayer {
     }
 
     public void beginPlayer(int track_number) {
+        if(mediaPlayer!=null)
+            mediaPlayer.release();
+
         switch (track_number) {
             case 0: {
                 mediaPlayer = MediaPlayer.create(mContext, R.raw.cake_face);
@@ -48,6 +51,7 @@ public class MusicPlayer {
     }
 
     public void stopPlayer(){
-        mediaPlayer.release();
+        if(mediaPlayer!=null)
+            mediaPlayer.release();
     }
 }
